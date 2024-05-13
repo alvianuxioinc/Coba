@@ -1187,7 +1187,7 @@ if (XeonTheCreator) return replygcxeon(bvl)
         }
         if (db.data.users[m.sender].afkTime > -1) {
             let user = global.db.data.users[m.sender]
-            replygcxeon(`You Have Returned From AFK\nAFK Reason: ${user.afkReason ? user.afkReason : ''}\nAFK Duration: ${clockString(new Date - user.afkTime)}`.trim())
+            replygcxeon(`You Have Returned From AFK\nReason : ${user.afkReason ? user.afkReason : ' No Reason'}\nDuration : ${clockString(new Date - user.afkTime)}`.trim())
             user.afkTime = -1
             user.afkReason = ''
         }
@@ -3932,7 +3932,7 @@ Type *surrender* to give up and admit defeat`
                 let user = global.db.data.users[m.sender]
                 user.afkTime = + new Date
                 user.afkReason = text
-                replygcxeon(`${m.pushName} *Has Gone AFK*${text ? ': ' + text : ''}`)
+                replygcxeon(`${m.pushName} *Has Gone AFK*${text ? ': ' + text : ' : No Reason'}`)
             }
             break	
             case 'openai-indo': {
